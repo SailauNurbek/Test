@@ -1,0 +1,53 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practice_Work_9._5"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors" x:Class="Practice_Work_9._5.MainWindow"
+        mc:Ignorable="d"
+        Title="Практическая работа 9.5" Height="475" Width="800" Background="DarkGray">
+    <Border MaxWidth="700" MaxHeight ="550" Margin="15,10,15,0" VerticalAlignment="Top"
+                Background="White" 
+                Padding="40" CornerRadius="20" Height="420">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="20" Color="LightGray" ShadowDepth="0"/>
+        </Border.Effect>
+        <StackPanel Margin="0,-30,0,0">
+            <TextBlock Text="Text Splitter, Practice Work 9.5" 
+                       FontSize="14" FontWeight="Bold" 
+                       Margin="0,0,0,20"/>
+
+            <TextBox x:Name="Sentence"
+                materialDesign:HintAssist.Hint="Введите строку: "
+                     FontSize="13"
+                     Style ="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <Button Content="Разделить" Width="150" HorizontalAlignment="Right"
+                    Margin="0,25,0,0" Click="Button_Click"/>
+            <TextBlock Text="Список слов строки" FontSize="14" FontWeight="Bold"
+                       HorizontalAlignment="Center" Margin="0,20,0,0"/>
+            <ListBox x:Name="Words" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="70">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Margin" Value="5"/>                     
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#6737b8"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+
+            <TextBlock Text="Развернуть предложения" FontSize="14" FontWeight="Bold"
+                       HorizontalAlignment="Center" Margin="0,20,0,0"/>
+
+            <Button Content="Развернуть" Width="150" HorizontalAlignment="Right"
+                    Margin="0,25,0,0" Click="bReverse"/>
+
+            <Label x:Name="Revers" />
+        </StackPanel>
+    </Border>
+</Window>
